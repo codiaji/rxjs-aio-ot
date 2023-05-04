@@ -1,0 +1,24 @@
+{
+  "name": "rxjs-aio-ot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "codiaji <codiaji@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack serve"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-loader": "^9.1.2",
+    "html-webpack-plugin": "^5.5.1",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3"
+  },
+  "dependencies": {
+    "rxjs": "^7.8.1"
+  }
+}
