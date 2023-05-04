@@ -1,4 +1,4 @@
-import { fromEvent } from "rxjs";
-fromEvent(document, "click").subscribe((event) => {
-  console.log(event);
-});
+let count = 0;
+document.addEventListener("click", () =>
+  console.log(`Clicked ${++count} times`)
+);
