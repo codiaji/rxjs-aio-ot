@@ -1,10 +1,9 @@
-let count = 0;
-const rate = 1000;
-let lastClick = Date.now() - rate;
-document.addEventListener("click", (event) => {
-  if (Date.now() - lastClick >= rate) {
-    count += event.clientX;
-    console.log(count);
-    lastClick = Date.now();
-  }
-});
+import { fromEvent, throttleTime, map, scan } from "rxjs";
+
+fromEvent(document, "click")
+  .pipe(
+    map((e) => e.clientX),
+    throttleTime(1000),
+    scan((count, value) => count + value, 0)
+  )
+  .subscribe((count) => console.log(`Clicked ${count} times`));
