@@ -1,12 +1,8 @@
-import { fromEvent, scan, debounce } from "rxjs";
+import { fromEvent, throttleTime, scan } from "rxjs";
 
 fromEvent(document, "click")
-  .pipe(scan((count) => count + 1, 0))
   .pipe(
-    debounce((count) => {
-      setTimeout(() => {
-        count;
-      }, 1000);
-    })
+    throttleTime(1000),
+    scan((count) => count + 1, 0)
   )
   .subscribe((count) => console.log(`Clicked ${count} times`));
