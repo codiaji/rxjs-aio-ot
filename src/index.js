@@ -2,8 +2,8 @@ import { fromEvent, throttleTime, map, scan } from "rxjs";
 
 fromEvent(document, "click")
   .pipe(
-    map((e) => e.clientX),
     throttleTime(1000),
-    scan((count, value) => count + value, 0)
+    map((event) => event.clientX),
+    scan((count, clientX) => count + clientX, 0)
   )
-  .subscribe((count) => console.log(`Clicked ${count} times`));
+  .subscribe((count) => console.log(count));
